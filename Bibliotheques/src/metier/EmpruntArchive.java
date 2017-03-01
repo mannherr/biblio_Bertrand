@@ -9,6 +9,8 @@ public class EmpruntArchive {
 	private Utilisateur emprunteur = new Utilisateur();
 	private Exemplaire exemplaire = new Exemplaire();
 	
+	
+	
 	public Date getDateRestitutionEff() {
 		return dateRestitutionEff;
 	}
@@ -50,4 +52,14 @@ public class EmpruntArchive {
 		this.setDateEmprunt(dateEmprunt);		
 	}
 	
-}
+	public static void main (String [] args){
+		
+		
+		EmpruntArchive ea = new EmpruntArchive () ;
+		ea.getEmprunteur().
+		
+		
+	} //main
+	
+		
+} //class>

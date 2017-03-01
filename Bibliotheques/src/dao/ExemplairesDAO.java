@@ -45,7 +45,7 @@ public class ExemplairesDAO {
 		
 		ExemplairesDAO exemplairesDAO = new ExemplairesDAO();
 		
-		System.out.println(exemplairesDAO.findByKey(14));
+//		System.out.println(exemplairesDAO.findByKey(14));
 		
 		Iterator<Exemplaire> it;
 		
