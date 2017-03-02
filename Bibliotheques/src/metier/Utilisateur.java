@@ -1,6 +1,7 @@
 package metier;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Utilisateur extends Personne {
 
@@ -46,12 +47,20 @@ public class Utilisateur extends Personne {
 		this.setPwd(mdp);
 	}
 	
+	public Utilisateur(String nom, String prenom, Date dateNaiss, String sexe, int id, String Pseudo, String mdp){
+		super(nom, prenom, dateNaiss, sexe);
+		this.setIdUtilisateur(id);
+		this.setPseudonyme(Pseudo);
+		this.setPwd(mdp);
+	}
+	
 	public void addEmpruntEnCours(EmpruntEnCours ep) throws BiblioException {
 		if(this.getEmpruntEnCours().contains(ep))
 			throw new BiblioException("L'utilisateur possède déjà l'exemplaire.");
 		else{
 			empruntEnCours.add(ep);
 			ep.setEmprunteur(this);
+			ep.getExemplaire().setStatus(EnumStatusExemplaire.PRETE);
 		}	
 	}
 	
@@ -59,12 +68,13 @@ public class Utilisateur extends Personne {
 		return empruntEnCours.size();
 	}
 	
+	
+	
 	@Override
 	public String toString() {
-		return "Utilisateur [idUtilisateur=" + idUtilisateur + ", pwd=" + pwd + ", pseudonyme=" + pseudonyme
-				+ ", empruntEnCours=" + empruntEnCours + "]";
+		return super.toString() + "Utilisateur [idUtilisateur=" + idUtilisateur + ", pwd=" + pwd + ", pseudonyme=" + pseudonyme
+				+ ", empruntEnCours=" + empruntEnCours +"]";
 	}
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -1,5 +1,7 @@
 package metier;
 
+import java.util.Date;
+
 public class Employe extends Utilisateur {
 
 	private String codeMatricule;
@@ -22,7 +24,13 @@ public class Employe extends Utilisateur {
 		this("Code matricule", EnumCategorieEmploye.BIBLIOTHECAIRE);
 	}
 	
-	public Employe(String codeMat, EnumCategorieEmploye categorie){
+	public Employe(String codeMat, EnumCategorieEmploye enumEmploye){
+		this.setCodeMatricule(codeMat);
+		this.setCategorieEmploye(enumEmploye);
+	}
+	
+	public Employe(String nom, String prenom, Date dateNaiss, String sexe, int id, String Pseudo, String mdp,String codeMat, EnumCategorieEmploye categorie){
+		super(nom, prenom, dateNaiss, sexe, id, Pseudo, mdp);
 		this.setCodeMatricule(codeMat);
 		this.setCategorieEmploye(categorie);
 	}
@@ -31,11 +39,12 @@ public class Employe extends Utilisateur {
 		return true;
 	}
 	
+	
+	
 	@Override
 	public String toString() {
-		return "Employe [codeMatricule=" + codeMatricule + ", categorieEmploye=" + categorieEmploye + "]";
+		return super.toString() + "Employe [codeMatricule=" + codeMatricule + ", categorieEmploye=" + categorieEmploye + "]";
 	}
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -60,5 +69,4 @@ public class Employe extends Utilisateur {
 			return false;
 		return true;
 	} 
-	
 }

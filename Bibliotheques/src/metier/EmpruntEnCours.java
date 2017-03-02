@@ -33,15 +33,26 @@ public class EmpruntEnCours {
 		return exemplaire;
 	}
 
-	public void setExemplaire(Exemplaire exemplaire) {
-		this.exemplaire = exemplaire;
+	public void setExemplaire(Exemplaire exemplaire) throws BiblioException {
+		if(exemplaire.getStatus().equals(EnumStatusExemplaire.PRETE))
+			throw new BiblioException("Le livre n'est pas disponible");
+		else{
+			this.exemplaire = exemplaire;
+			this.exemplaire.setStatus(EnumStatusExemplaire.PRETE);
+		}	
 	}
 
-	public EmpruntEnCours(){
-		this(new Date());
+	public EmpruntEnCours() throws BiblioException{
+		this(new Utilisateur());
 	}
 	
-	public EmpruntEnCours(Date date){
+	public EmpruntEnCours(Utilisateur utilisateur) throws BiblioException{
+		this.setEmprunteur(utilisateur);
+		this.setDateEmprunt(new Date());
+	}
+	
+	public EmpruntEnCours(Utilisateur utilisateur, Date date) throws BiblioException{
+		this.setEmprunteur(utilisateur);
 		this.setDateEmprunt(date);
 	}
 	
