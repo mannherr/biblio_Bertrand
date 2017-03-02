@@ -45,22 +45,20 @@ public class EmpruntArchive {
 	}
 
 	public EmpruntArchive(){
-		this(new Date(), new Date(0));
+		this(new Utilisateur(), new Date(), new Date(0));
 	}
 
-	public EmpruntArchive(Date dateRestitution, Date dateEmprunt){
+	public EmpruntArchive(Utilisateur utilisateur, Date dateRestitution, Date dateEmprunt){
+		this.setEmprunteur(utilisateur);
 		this.setDateRestitutionEff(dateRestitution);
 		this.setDateEmprunt(dateEmprunt);
 	}
 
 	public static void main (String [] args){
-
-
+		
 		EmpruntArchive ea = new EmpruntArchive () ;
 
+	}
 
 
-	} //main
-
-
-} //class>
+}

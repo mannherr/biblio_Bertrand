@@ -8,7 +8,7 @@ public class Exemplaire {
 	private Date dateAchat;
 	private EnumStatusExemplaire status;
 	private String isbn;
-	private EmpruntEnCours empruntEnCours = new EmpruntEnCours();
+	private EmpruntEnCours empruntEnCours;
 	
 	public int getIdExemplaire() {
 		return idExemplaire;

@@ -1,5 +1,7 @@
 package metier;
 
+import java.util.Date;
+
 public class Adherent extends Utilisateur {
 	
 	private String telephone;
@@ -26,10 +28,15 @@ public class Adherent extends Utilisateur {
 	}
 	
 	public Adherent(){
-		this("Téléphone non renseigné", new Utilisateur());
+		this("Téléphone non renseigné");
 	}
 	
-	public Adherent(String telephone, Utilisateur utilisateur){
+	public Adherent(String telephone){
+		this.setTelephone(telephone);
+	}
+	
+	public Adherent(String nom, String prenom, Date dateNaiss, String sexe, int id, String Pseudo, String mdp, String telephone){
+		super(nom, prenom, dateNaiss, sexe, id, Pseudo, mdp);
 		this.setTelephone(telephone);
 	}
 	
@@ -52,14 +59,15 @@ public class Adherent extends Utilisateur {
 	}
 	 
 	public void addEmpruntEnCours(EmpruntEnCours ep) throws BiblioException{
-		if(getNbEmpruntsEnCours()<getNbMaxPrets() && !getEmpruntEnCours().contains(ep))
+		if(isConditionsPretAcceptees() && getNbEmpruntsEnCours()<getNbMaxPrets() && !getEmpruntEnCours().contains(ep)){
 			getEmpruntEnCours().add(ep);
-		else throw new BiblioException("Nombre d'emprunts maximal atteint.");
+		}
+		else throw new BiblioException("Un emprunt est en retard ou le nombre maximal d'emprunts a été atteint.");
 	}
 	
 	@Override
 	public String toString() {
-		return "Adherent [telephone=" + telephone + "]";
+		return super.toString() + "Adherent [telephone=" + telephone + "]";
 	}
 	
 }
