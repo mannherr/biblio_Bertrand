@@ -27,6 +27,10 @@ public class Employe extends Utilisateur {
 		this.setCategorieEmploye(categorie);
 	}
 	
+	public boolean isConditionsPretAcceptees(){
+		return true;
+	}
+	
 	@Override
 	public String toString() {
 		return "Employe [codeMatricule=" + codeMatricule + ", categorieEmploye=" + categorieEmploye + "]";
