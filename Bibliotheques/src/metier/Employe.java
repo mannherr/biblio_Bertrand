@@ -4,7 +4,9 @@ import java.util.Date;
 
 public class Employe extends Utilisateur {
 
+	/** Variable qui définit le code identifiant d'un employé */
 	private String codeMatricule;
+	/** Variable qui définit la catégorie d'un employé */
 	private EnumCategorieEmploye categorieEmploye;
 	
 	public String getCodeMatricule() {
@@ -20,21 +22,45 @@ public class Employe extends Utilisateur {
 		this.categorieEmploye = categorieEmploye;
 	}
 	
+	/**
+	 * Constructeur par défaut d'un employé
+	 */
 	public Employe(){
 		this("Code matricule", EnumCategorieEmploye.BIBLIOTHECAIRE);
 	}
 	
+	/**
+	 * Constructeur d'un employé avec paramètres
+	 * @param codeMat Code matricule de l'employé
+	 * @param enumEmploye Catégorie de l'employé
+	 */
 	public Employe(String codeMat, EnumCategorieEmploye enumEmploye){
 		this.setCodeMatricule(codeMat);
 		this.setCategorieEmploye(enumEmploye);
 	}
 	
+	/**
+	 * Constructeur d'un employé avec tous les paramètres des classes héritées
+	 * @param nom Nom de l'employé
+	 * @param prenom Prénom de l'employé
+	 * @param dateNaiss Date de naissance de l'employé
+	 * @param sexe Sexe de l'employé
+	 * @param id Identifiant de l'employé
+	 * @param Pseudo Pseudonym de l'employé
+	 * @param mdp Mot de passe de l'employé
+	 * @param codeMat Code matricule de l'employé
+	 * @param categorie Catégorie de l'employé
+	 */
 	public Employe(String nom, String prenom, Date dateNaiss, String sexe, int id, String Pseudo, String mdp,String codeMat, EnumCategorieEmploye categorie){
 		super(nom, prenom, dateNaiss, sexe, id, Pseudo, mdp);
 		this.setCodeMatricule(codeMat);
 		this.setCategorieEmploye(categorie);
 	}
 	
+	/**
+	 * Méthode qui vérifie les conditions d'emprunt d'un employé
+	 * @return Retourne si les conditions sont acceptées ou non
+	 */
 	public boolean isConditionsPretAcceptees(){
 		return true;
 	}

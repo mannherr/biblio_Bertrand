@@ -126,7 +126,7 @@ public class Test {
     	System.out.println();
  		System.out.println("Création d'un emprunt en cours pour un adhérent : ");
  		EmpruntEnCours ep3 = new EmpruntEnCours();
- 		ep3.setExemplaire(eDao.findByKey(13));
+ 		Exemplaire e3 = eDao.findByKey(15);
  		uDao.findByKey(19).addEmpruntEnCours(ep3);
  		System.out.println(uDao.findByKey(19));
 
