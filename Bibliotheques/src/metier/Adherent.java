@@ -59,7 +59,7 @@ public class Adherent extends Utilisateur {
 	}
 	 
 	public void addEmpruntEnCours(EmpruntEnCours ep) throws BiblioException{
-		if(isConditionsPretAcceptees() && getNbEmpruntsEnCours()<getNbMaxPrets() && !getEmpruntEnCours().contains(ep)){
+		if(isConditionsPretAcceptees() && !getEmpruntEnCours().contains(ep)){
 			getEmpruntEnCours().add(ep);
 		}
 		else throw new BiblioException("Un emprunt est en retard ou le nombre maximal d'emprunts a été atteint.");

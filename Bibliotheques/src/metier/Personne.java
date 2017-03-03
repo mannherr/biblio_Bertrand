@@ -2,11 +2,20 @@ package metier;
 
 import java.util.Date;
 
+/**
+ * @author Bertrand_Lucas
+ * @version 1.3.9
+ * Classe décrivant l'abstraction d'une personne
+ */
 public class Personne {
 	
+	/** Variable qui définit le nom d'une personne */
 	private String nom;
+	/** Variable qui définit le prénom d'une la personne */
 	private String prenom;
+	/** Variable qui définit la date de naissance d'une personne */
 	private Date dateNaissance;
+	/** Variable qui définit le sexe d'une personne */
 	private String sexe;
 	
 	public String getNom() {
@@ -34,10 +43,20 @@ public class Personne {
 		this.sexe = sexe;
 	}
 	
+	/**
+	 * Constructeur par défaut d'une personne
+	 */
 	public Personne(){
 		this("Prénom inconnu", "Nom inconnu", new Date(), "Sexe inconnu");
 	}
 	
+	/**
+	 * Constructeur d'une personne avec paramètres qui définissent cette personne
+	 * @param prenom Prenom de la personne
+	 * @param nom Nom de la personne
+	 * @param dateNaiss Date de naissance de la personne
+	 * @param sexe Sexe de la personne
+	 */
 	public Personne(String prenom, String nom, Date dateNaiss, String sexe){
 		this.setPrenom(prenom);
 		this.setNom(nom);
