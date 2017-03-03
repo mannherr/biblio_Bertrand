@@ -56,6 +56,17 @@ public class EmpruntEnCours {
 		this.setDateEmprunt(date);
 	}
 	
+	public EmpruntEnCours(Utilisateur utilisateur, Exemplaire exemplaire) throws BiblioException{
+		this.setEmprunteur(utilisateur);
+		this.setExemplaire(exemplaire);
+	}
+	
+	public EmpruntEnCours(Utilisateur utilisateur, Exemplaire exemplaire, Date date) throws BiblioException{
+		this.setEmprunteur(utilisateur);
+		this.setDateEmprunt(date);
+		this.setExemplaire(exemplaire);
+	}
+	
 	public boolean isPretEnRetard(){
 		GregorianCalendar dateActuelle = new GregorianCalendar();
 		dateActuelle.add(Calendar.DAY_OF_YEAR, -Adherent.getDureeMaxPrets());
