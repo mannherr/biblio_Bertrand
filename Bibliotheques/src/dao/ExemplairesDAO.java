@@ -2,6 +2,7 @@ package dao;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
 
@@ -11,10 +12,10 @@ import metier.Exemplaire;
 public class ExemplairesDAO {
 
 	private Exemplaire[] exemplaireDB = {
-			new Exemplaire(12, new Date(), EnumStatusExemplaire.PRETE, "1213141516"),
-			new Exemplaire(13, new Date(), EnumStatusExemplaire.DISPONIBLE, "1314151617"),
-			new Exemplaire(14, new Date(), EnumStatusExemplaire.SUPPRIME, "1415161718"),
-			new Exemplaire(15, new Date(), EnumStatusExemplaire.DISPONIBLE, "1516171819")
+			new Exemplaire(12, new GregorianCalendar(2013,0,1).getTime(), EnumStatusExemplaire.PRETE, "1213141516"),
+			new Exemplaire(13, new GregorianCalendar(2013,0,1).getTime(), EnumStatusExemplaire.DISPONIBLE, "1314151617"),
+			new Exemplaire(14, new GregorianCalendar(2013,10,1).getTime(), EnumStatusExemplaire.SUPPRIME, "1415161718"),
+			new Exemplaire(15, new GregorianCalendar(2013,10,1).getTime(), EnumStatusExemplaire.DISPONIBLE, "1516171819")
 	};
 
 	public Exemplaire findByKey(int id){
