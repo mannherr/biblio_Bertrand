@@ -4,10 +4,15 @@ import java.util.Date;
 
 public class Exemplaire {
 	
+	/** Variable qui définit l'identifiant d'un exemplaire */
 	private int idExemplaire;
+	/** Variable qui définit la date d'achat d'un exemplaire */
 	private Date dateAchat;
+	/** Variable qui définit le statut d'un exemplaire */
 	private EnumStatusExemplaire status;
+	/** Variable qui définit le numéro ISBN d'un exemplaire */
 	private String isbn;
+	/** Variable qui définit un emprunt en cours associé à un exemplaire */
 	private EmpruntEnCours empruntEnCours;
 	
 	public int getIdExemplaire() {
@@ -41,10 +46,21 @@ public class Exemplaire {
 	public void setEmpruntEnCours(EmpruntEnCours empruntEnCours) {
 		this.empruntEnCours = empruntEnCours;
 	}
+	
+	/**
+	 * Constructeur par défaut d'un exemplaire
+	 */
 	public Exemplaire(){
 		this(0, new Date(0), EnumStatusExemplaire.DISPONIBLE, "0");
 	}
 	
+	/**
+	 * Constructeur avec paramètres d'un exemplaire
+	 * @param id Identifiant de l'exemplaire
+	 * @param achat Date d'achat de l'exemplaire
+	 * @param status Statut de l'exemplaire
+	 * @param isbn Numéro ISBN de l'exemplaire
+	 */
 	public Exemplaire(int id, Date achat, EnumStatusExemplaire status, String isbn){
 		this.setIdExemplaire(id);
 		this.setDateAchat(achat);

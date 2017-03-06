@@ -59,7 +59,7 @@ public class Employe extends Utilisateur {
 	
 	/**
 	 * Méthode qui vérifie les conditions d'emprunt d'un employé
-	 * @return Retourne si les conditions sont acceptées ou non
+	 * @return Retourne l'acceptation des conditions
 	 */
 	public boolean isConditionsPretAcceptees(){
 		return true;

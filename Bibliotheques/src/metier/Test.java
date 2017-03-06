@@ -186,7 +186,7 @@ public class Test {
 
 	 		System.out.println("L'Adhérent veut emprunter un 4ème livre...");
 		 		EmpruntEnCours ep10= new EmpruntEnCours();
-		//		uDao.findByKey(20).addEmpruntEnCours(ep10);
+//				uDao.findByKey(20).addEmpruntEnCours(ep10);
 				System.out.println("Impossible ! ");
 				System.out.println();
 
@@ -205,7 +205,7 @@ public class Test {
 				uDao.findByKey(21).addEmpruntEnCours(ep14);
 				System.out.println("C'est possible ! ");
 
-
+//
 
 
 
