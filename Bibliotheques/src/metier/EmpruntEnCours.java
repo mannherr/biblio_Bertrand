@@ -5,12 +5,12 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class EmpruntEnCours {
-	
-	/** Variable qui définit la date d'emprunt d'un emprunt en cours */
-	private Date dateEmprunt;	
-	/** Variable qui définit l'emprunteur d'un emprunt en cours */
+
+	/** Variable qui dï¿½finit la date d'emprunt d'un emprunt en cours */
+	private Date dateEmprunt;
+	/** Variable qui dï¿½finit l'emprunteur d'un emprunt en cours */
 	private Utilisateur emprunteur = new Utilisateur();
-	/** Variable qui définit l'exemplaire emprunté lors d'un emprunt en cours */
+	/** Variable qui dï¿½finit l'exemplaire empruntï¿½ lors d'un emprunt en cours */
 	private Exemplaire exemplaire;
 
 	public Date getDateEmprunt() {
@@ -20,20 +20,20 @@ public class EmpruntEnCours {
 	public void setDateEmprunt(Date dateEmprunt) {
 		this.dateEmprunt = dateEmprunt;
 	}
-	
+
 	public Utilisateur getEmprunteur() {
 		return emprunteur;
 	}
 
 	/**
-	 * Méthode qui définit l'emprunteur de l'emprunt en cours
+	 * Mï¿½thode qui dï¿½finit l'emprunteur de l'emprunt en cours
 	 * @param emprunteur Utilisateur de l'emprunt en cours
 	 * @throws BiblioException
 	 */
 	public void setEmprunteur(Utilisateur emprunteur) throws BiblioException {
 		this.emprunteur = emprunteur;
 		if(!emprunteur.getEmpruntEnCours().contains(this)){
-			emprunteur.addEmpruntEnCours(this);	
+			emprunteur.addEmpruntEnCours(this);
 		}
 	}
 
@@ -42,8 +42,8 @@ public class EmpruntEnCours {
 	}
 
 	/**
-	 * Méthode qui définit l'exemplaire concerné par l'emprunt en cours
-	 * @param exemplaire Exemplaire concerné par l'emprunt en cours
+	 * Mï¿½thode qui dï¿½finit l'exemplaire concernï¿½ par l'emprunt en cours
+	 * @param exemplaire Exemplaire concernï¿½ par l'emprunt en cours
 	 * @throws BiblioException
 	 */
 	public void setExemplaire(Exemplaire exemplaire) throws BiblioException {
@@ -51,20 +51,21 @@ public class EmpruntEnCours {
 			throw new BiblioException("Le livre n'est pas disponible");
 		else{
 			this.exemplaire = exemplaire;
-			this.exemplaire.setStatus(EnumStatusExemplaire.PRETE);
-		}	
+			exemplaire.setEmpruntEnCours(this);
+			exemplaire.setStatus(EnumStatusExemplaire.PRETE);
+		}
 	}
 
 	/**
-	 * Constructeur par défaut d'un emprunt en cours
+	 * Constructeur par dï¿½faut d'un emprunt en cours
 	 * @throws BiblioException
 	 */
 	public EmpruntEnCours() throws BiblioException{
 		this(new Utilisateur());
 	}
-	
+
 	/**
-	 * Constructeur avec paramètre Utilisateur d'un emprunt en cours
+	 * Constructeur avec paramï¿½tre Utilisateur d'un emprunt en cours
 	 * @param utilisateur Utilisateur de l'emprunt en cours
 	 * @throws BiblioException
 	 */
@@ -72,9 +73,9 @@ public class EmpruntEnCours {
 		this.setEmprunteur(utilisateur);
 		this.setDateEmprunt(new Date());
 	}
-	
+
 	/**
-	 * Constructeur avec paramètres d'un emprunt en cours
+	 * Constructeur avec paramï¿½tres d'un emprunt en cours
 	 * @param utilisateur Utilisateur de l'emprunt en cours
 	 * @param date Date d'emprunt de l'emprunt en cours
 	 * @throws BiblioException
@@ -83,22 +84,22 @@ public class EmpruntEnCours {
 		this.setEmprunteur(utilisateur);
 		this.setDateEmprunt(date);
 	}
-	
+
 	/**
-	 * Constructeur avec paramètres d'un emprunt en cours
+	 * Constructeur avec paramï¿½tres d'un emprunt en cours
 	 * @param utilisateur Utilisateur de l'emprunt en cours
-	 * @param exemplaire Exemplaire concerné par l'emprunt en cours
+	 * @param exemplaire Exemplaire concernï¿½ par l'emprunt en cours
 	 * @throws BiblioException
 	 */
 	public EmpruntEnCours(Utilisateur utilisateur, Exemplaire exemplaire) throws BiblioException{
 		this.setEmprunteur(utilisateur);
 		this.setExemplaire(exemplaire);
 	}
-	
+
 	/**
-	 * Constructeur avec paramètres d'un emprunt en cours
-	 * @param utilisateur Utilisateur concerné par l'emprunt en cours
-	 * @param exemplaire Exemplaire concerné par l'emprunt en cours
+	 * Constructeur avec paramï¿½tres d'un emprunt en cours
+	 * @param utilisateur Utilisateur concernï¿½ par l'emprunt en cours
+	 * @param exemplaire Exemplaire concernï¿½ par l'emprunt en cours
 	 * @param date Date d'emprunt de l'emprunt en cours
 	 * @throws BiblioException
 	 */
@@ -107,9 +108,9 @@ public class EmpruntEnCours {
 		this.setDateEmprunt(date);
 		this.setExemplaire(exemplaire);
 	}
-	
+
 	/**
-	 * Méthode qui définit si le prêt est en retard ou pas
+	 * Mï¿½thode qui dï¿½finit si le prï¿½t est en retard ou pas
 	 * @return
 	 */
 	public boolean isPretEnRetard(){
@@ -122,17 +123,6 @@ public class EmpruntEnCours {
 		else{
 			return false;
 		}
-	}
-	
-	/**
-	 * Méthode qui représente le retour d'un emprunt par un utilisateur
-	 * @throws BiblioException
-	 */
-	public void retourEmprunt() throws BiblioException{
-		this.getExemplaire().setStatus(EnumStatusExemplaire.DISPONIBLE);
-		this.setEmprunteur(null);
-		EmpruntArchive ea = new EmpruntArchive(this.getEmprunteur(),this.getExemplaire(),new Date(),this.getDateEmprunt());
-		this.getEmprunteur().getEmpruntEnCours().remove(this);
 	}
 
 	@Override

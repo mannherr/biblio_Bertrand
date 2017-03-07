@@ -19,6 +19,7 @@ public class UtilisateursDAO {
 		new Adherent("Wayne", "John", new GregorianCalendar(1945,5,18).getTime(), "M", 19, "jwayne", "PassWord", "0448563268"),
 		new Adherent("Martin", "David", new GregorianCalendar(1955,8,07).getTime(), "M", 20,"DMartin", "Bambi", "0648563251"),
 		new Employe("Kmieciak","Lech", new GregorianCalendar(1985,5,21).getTime(), "M", 21, "LKmieciak", "@tfghp", "greqgf1540", EnumCategorieEmploye.RESPONSABLE),
+	
 	};
 
 	public Utilisateur findByKey(int id){

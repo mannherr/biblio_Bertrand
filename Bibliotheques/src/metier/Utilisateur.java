@@ -6,23 +6,23 @@ import java.util.Date;
 /**
  * @author Bertrand_Lucas
  * @version 1.3.9
- * Classe qui définit l'abstraction d'un utilisateur
+ * Classe qui dï¿½finit l'abstraction d'un utilisateur
  */
 public class Utilisateur extends Personne {
 
-// VARIABLES	
-	
-	/** Variable qui définit l'identifiant d'un utilisateur */
+// VARIABLES
+
+	/** Variable qui dï¿½finit l'identifiant d'un utilisateur */
 	private int idUtilisateur;
-	/** Variable qui définit le mot de passe d'un utilisateur */
+	/** Variable qui dï¿½finit le mot de passe d'un utilisateur */
 	private String pwd;
-	/** Variable qui définit le pseudonyme d'un utilisateur */
+	/** Variable qui dï¿½finit le pseudonyme d'un utilisateur */
 	private String pseudonyme;
 	/** Instance d'une collection qui regroupe les emprunts d'un utilisateur */
 	private ArrayList<EmpruntEnCours> empruntEnCours = new ArrayList<EmpruntEnCours>();
 
 // GETTERS SETTERS
-	
+
 	public int getIdUtilisateur() {
 		return idUtilisateur;
 	}
@@ -51,14 +51,14 @@ public class Utilisateur extends Personne {
 	}
 
 	/**
-	 * Constructeur par défaut d'un utilisateur
+	 * Constructeur par dï¿½faut d'un utilisateur
 	 */
 	public Utilisateur(){
 		this(0, "Pseudonyme inconnu", "Mot de passe inconnu");
 	}
 
 	/**
-	 * Constructeur d'un utilisateur avec trois paramètres
+	 * Constructeur d'un utilisateur avec trois paramï¿½tres
 	 * @param id Identifiant de l'utilisateur
 	 * @param pseudo Pseudonyme de l'utilisateur
 	 * @param mdp Mot de passe de l'utilisateur
@@ -68,11 +68,11 @@ public class Utilisateur extends Personne {
 		this.setPseudonyme(pseudo);
 		this.setPwd(mdp);
 	}
-	
+
 	/**
-	 * Constructeur d'un utilisateur avec paramètres de la classe Personne héritée
+	 * Constructeur d'un utilisateur avec paramï¿½tres de la classe Personne hï¿½ritï¿½e
 	 * @param nom Nom de l'utilisateur
-	 * @param prenom Prénom de l'utilisateur
+	 * @param prenom Prï¿½nom de l'utilisateur
 	 * @param dateNaiss Date de naissance de l'utilisateur
 	 * @param sexe Sexe de l'utilisateur
 	 * @param id Identifiant de l'utilisateur
@@ -87,21 +87,21 @@ public class Utilisateur extends Personne {
 	}
 
 	/**
-	 * Méthode d'ajout d'emprunt dans la collection de l'utilisateur
-	 * @param ep Emprunt à ajouter dans la collection de l'utilisateur
-	 * @throws BiblioException Exception levée si l'utilisateur possède déjà l'emprunt dans sa collection
+	 * Mï¿½thode d'ajout d'emprunt dans la collection de l'utilisateur
+	 * @param ep Emprunt ï¿½ ajouter dans la collection de l'utilisateur
+	 * @throws BiblioException Exception levï¿½e si l'utilisateur possï¿½de dï¿½jï¿½ l'emprunt dans sa collection
 	 */
 	public void addEmpruntEnCours(EmpruntEnCours ep) throws BiblioException {
 		if(this.getEmpruntEnCours().contains(ep))
-			throw new BiblioException("L'utilisateur possède déjà l'exemplaire.");
+			throw new BiblioException("L'utilisateur possï¿½de dï¿½jï¿½ l'exemplaire.");
 		else{
 			empruntEnCours.add(ep);
 			ep.setEmprunteur(this);
-		}	
+		}
 	}
 
 	/**
-	 * Méthode de calcul du nombre d'emprunt d'un utilisateur
+	 * Mï¿½thode de calcul du nombre d'emprunt d'un utilisateur
 	 * @return Retourne la taille de la collection d'emprunts de l'utilisateur
 	 */
 	public int getNbEmpruntsEnCours(){

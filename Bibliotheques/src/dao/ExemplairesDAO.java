@@ -15,7 +15,10 @@ public class ExemplairesDAO {
 			new Exemplaire(12, new GregorianCalendar(2013,0,1).getTime(), EnumStatusExemplaire.PRETE, "1213141516"),
 			new Exemplaire(13, new GregorianCalendar(2013,0,1).getTime(), EnumStatusExemplaire.DISPONIBLE, "1314151617"),
 			new Exemplaire(14, new GregorianCalendar(2013,10,1).getTime(), EnumStatusExemplaire.SUPPRIME, "1415161718"),
-			new Exemplaire(15, new GregorianCalendar(2013,10,1).getTime(), EnumStatusExemplaire.DISPONIBLE, "1516171819")
+			new Exemplaire(15, new GregorianCalendar(2013,10,1).getTime(), EnumStatusExemplaire.DISPONIBLE, "1516171819"),
+			new Exemplaire(16, new GregorianCalendar(2013,9,5).getTime(), EnumStatusExemplaire.DISPONIBLE, "1245841231456"),
+			new Exemplaire(17, new GregorianCalendar(2013,9,5).getTime(), EnumStatusExemplaire.DISPONIBLE, "865843245")
+
 	};
 
 	public Exemplaire findByKey(int id){
